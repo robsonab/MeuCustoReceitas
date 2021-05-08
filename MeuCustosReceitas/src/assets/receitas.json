@@ -1,0 +1,52 @@
+{
+    "name": "Receitas",
+    "receipt": [
+        {
+            "name": "Bolo",
+            "ingredients": [
+                {
+                    "name": "Ovos",
+                    "qty": 3,
+                    "price": 13,
+                    "qtyPack": 30
+                },
+                {
+                    "name": "Açúcar Refinado",
+                    "qty": 180,
+                    "price": 2.25,
+                    "qtyPack": 1000
+                },
+                {
+                    "name": "Óleo",
+                    "qty": 80,
+                    "price": 8.89,
+                    "qtyPack": 1000
+                },
+                {
+                    "name": "Leite em pó",
+                    "qty": 150,
+                    "price": 12,
+                    "qtyPack": 3000
+                },
+                {
+                    "name": "Fermento em pó",
+                    "qty": 10,
+                    "price": 2.49,
+                    "qtyPack": 100
+                },
+                {
+                    "name": "Farinha de Trigo",
+                    "qty": 200,
+                    "price": 15.99,
+                    "qtyPack": 5000
+                },
+                {
+                    "name": "Chocolate em pó",
+                    "qty": 40,
+                    "price": 20.7,
+                    "qtyPack": 1000
+                }
+            ]
+        }
+    ]
+}
