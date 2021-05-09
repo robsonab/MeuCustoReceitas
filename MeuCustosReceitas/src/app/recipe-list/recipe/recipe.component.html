@@ -1,0 +1,33 @@
+<div class="row">
+    <h3 class="col-12 mt-4">
+        <b>{{ingredient.name}}</b>
+    </h3>
+    <div class="col-4">
+        <mat-form-field>
+            <mat-label>Preço Embalagem</mat-label>
+            <input matInput placeholder="Preço Embalagem" [value]="ingredient.pricePack "
+            [(ngModel)] = "ingredient.pricePack"
+                class="text-center">
+        </mat-form-field>
+    </div>
+    <div class="col-4">
+        <mat-form-field>
+            <mat-label>Qtd. Embalagem ({{unit}})</mat-label>
+            <input matInput placeholder="Quantidade da embalagem" [value]="ingredient.qtyPack | number"
+            [(ngModel)] = "ingredient.qtyPack"
+                class="text-center">
+        </mat-form-field>
+    </div>
+    <div class="col-4">
+        <mat-form-field>
+            <mat-label>Qtd. utilizada ({{unit}})</mat-label>
+            <input matInput placeholder="Quantidade da utilizada" 
+            [(ngModel)] = "ingredient.qty"
+             class="text-center">
+        </mat-form-field>
+    </div>
+    <div class="col-12">
+        <mat-label>Custo:</mat-label>
+        {{getPriceCost(ingredient) | currency : "BRL"}} 
+    </div>
+</div>

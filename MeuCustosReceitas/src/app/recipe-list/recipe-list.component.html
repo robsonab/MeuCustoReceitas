@@ -1,1 +1,18 @@
-<p>recipe-list works!</p>
+<div class="container">
+    <h1>Receitas</h1>
+
+    <button (click)="onClick()">Total</button>
+    <div *ngFor="let recipe of recipes">
+        <h2>{{recipe.name}}</h2>
+        <h4> Total {{getTotal(recipe)}}</h4>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                <app-recipe #recipe [ingredient]="ingredient"></app-recipe>
+                {{ingredient.qty}}
+            </li>
+        </ul>
+
+    </div>
+
+</div>

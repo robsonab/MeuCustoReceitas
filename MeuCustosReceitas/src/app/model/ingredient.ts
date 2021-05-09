@@ -3,5 +3,5 @@ export class ingredient {
     qty: number;
     qtyPack: number;
     pricePack: number;
-    priceCost: number;
+    unit: string;
 }
