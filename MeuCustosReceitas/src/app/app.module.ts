@@ -13,8 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import { RecipeComponent } from './recipe-list/recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 registerLocaleData(localePT, 'pt-BR');
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ registerLocaleData(localePT, 'pt-BR');
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
-    FormsModule
+    FormsModule, 
+    NgxMaskModule.forRoot()
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

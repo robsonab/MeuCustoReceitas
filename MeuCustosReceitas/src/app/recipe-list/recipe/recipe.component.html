@@ -5,9 +5,10 @@
     <div class="col-4">
         <mat-form-field>
             <mat-label>Preço Embalagem</mat-label>
-            <input matInput placeholder="Preço Embalagem" [value]="ingredient.pricePack "
-            [(ngModel)] = "ingredient.pricePack"
-                class="text-center">
+            <input matInput placeholder="Preço Embalagem" [value]="ingredient.pricePack"  
+            mask="separator.2" thousandSeparator="," 
+            [(ngModel)] = "ingredient.pricePack" type="text" 
+            class="text-center">
         </mat-form-field>
     </div>
     <div class="col-4">
