@@ -1,34 +1,40 @@
-<div class="row">
-    <h3 class="col-12 mt-4">
+<div class="card" >
+    <div class="card-header">
         <b>{{ingredient.name}}</b>
-    </h3>
-    <div class="col-4">
-        <mat-form-field>
-            <mat-label>Preço Embalagem</mat-label>
-            <input matInput placeholder="Preço Embalagem" [value]="ingredient.pricePack"  
-            mask="separator.2" thousandSeparator="," 
-            [(ngModel)] = "ingredient.pricePack" type="text" 
-            class="text-center">
-        </mat-form-field>
     </div>
-    <div class="col-4">
-        <mat-form-field>
-            <mat-label>Qtd. Embalagem ({{unit}})</mat-label>
-            <input matInput placeholder="Quantidade da embalagem" [value]="ingredient.qtyPack | number"
-            [(ngModel)] = "ingredient.qtyPack"
-                class="text-center">
-        </mat-form-field>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <mat-form-field>
+                    <mat-label>Preço Embalagem</mat-label>
+                    <input matInput type='text' mask="separator.2" prefix="R$ " [(ngModel)]="pricePack"
+                        (keyup)="changePricePack()" class="text-center">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field>
+                    <mat-label>Preço Embalagem</mat-label>
+                    <input matInput type='text' mask="separator.2" prefix="R$ " [(ngModel)]="pricePack"
+                        (keyup)="changePricePack()" class="text-center">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field>
+                    <mat-label>Qtd. Embalagem ({{ingredient.unit}})</mat-label>
+                    <input matInput mask="separator.2" [(ngModel)]="qtyPack" (keyup)="changeQtyPack()"
+                        class="text-center">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field>
+                    <mat-label>Qtd. utilizada ({{ingredient.unit}})</mat-label>
+                    <input matInput mask="separator.2" [(ngModel)]="qty" (keyup)="changeQty()" class="text-center">
+                </mat-form-field>
+            </div> 
+        </div>
     </div>
-    <div class="col-4">
-        <mat-form-field>
-            <mat-label>Qtd. utilizada ({{unit}})</mat-label>
-            <input matInput placeholder="Quantidade da utilizada" 
-            [(ngModel)] = "ingredient.qty"
-             class="text-center">
-        </mat-form-field>
-    </div>
-    <div class="col-12">
+    <div class="card-footer">
         <mat-label>Custo:</mat-label>
-        {{getPriceCost(ingredient) | currency : "BRL"}} 
+        {{getPriceCost() | currency : "BRL"}}
     </div>
 </div>

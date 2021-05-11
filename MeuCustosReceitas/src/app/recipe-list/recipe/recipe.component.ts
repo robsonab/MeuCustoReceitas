@@ -13,9 +13,27 @@ export class RecipeComponent implements OnInit {
 
   @Input()
   ingredient: ingredient;
- 
+
+  pricePack: string; 
+  qtyPack: string;
+  qty: string;
+
+  changePricePack(){
+    this.ingredient.pricePack = Number(this.pricePack.replace(",", "."));
+  }
+
+  changeQtyPack(){
+    this.ingredient.qtyPack = Number(this.qtyPack.replace(",", "."));
+  }
+
+  changeQty(){
+    this.ingredient.qty = Number(this.qty.replace(",", "."));
+  }
 
   ngOnInit() {
+    this.pricePack = this.ingredient.pricePack.toLocaleString('pt-BR', {minimumFractionDigits: 2})    
+    this.qtyPack = this.ingredient.qtyPack.toString();
+    this.qty = this.ingredient.qty.toString();
   }
 
   @Output()

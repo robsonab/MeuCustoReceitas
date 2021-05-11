@@ -17,7 +17,7 @@ export class RecipeListComponent implements OnInit {
   
   urlToJson = 'assets/receitas.json';
 
-  @ViewChild('recipe', { static: false }) 
+  @ViewChild('recipe') 
   recipe: RecipeComponent[];
 
   total: number;

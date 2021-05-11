@@ -34,7 +34,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule, 
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot({
+       decimalMarker: "," 
+        
+       
+    })
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
