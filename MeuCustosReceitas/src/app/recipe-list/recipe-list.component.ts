@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
 import { ingredient } from '../model/ingredient';
 import { recipe } from '../model/recipe';
 import { IngredientService } from './ingredient.service';
@@ -19,6 +20,8 @@ export class RecipeListComponent implements OnInit {
 
   @ViewChild('recipe') 
   recipe: RecipeComponent[];
+  
+  dataSource: MatTableDataSource<ingredient>;
 
   total: number;
   constructor(private http: HttpClient,
@@ -26,10 +29,13 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit() {
     this.http.get<recipe[]>(this.urlToJson).subscribe(response => {
-      this.recipes = response;   
-
+      this.recipes = response;         
       
     });
+  }
+
+  getCost(ingredient: ingredient): number{    
+    return this.ingredientService.getCost(ingredient);
   }
 
   public getTotal(recipe: recipe) : number{    

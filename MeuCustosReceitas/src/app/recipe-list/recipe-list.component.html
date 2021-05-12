@@ -1,18 +1,16 @@
 <div class="container">
     <h1>Receitas</h1>
-    
+
     <div *ngFor="let recipe of recipes">
         
-        
         <div>
-            {{recipe.name}} - Total {{getTotal(recipe) | currency : "BRL"}}
-          </div>
+            {{recipe.name}}
+        </div>
 
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
-                <app-recipe #recipe [ingredient]="ingredient"></app-recipe>                
-            </li>
-        </ul>
+        <app-ingredient-list [ingredients]="recipe.ingredients">
+        </app-ingredient-list>
+
+
 
     </div>
 

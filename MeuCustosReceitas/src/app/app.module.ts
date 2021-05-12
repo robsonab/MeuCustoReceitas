@@ -10,10 +10,11 @@ import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatTableModule } from '@angular/material';
 import { RecipeComponent } from './recipe-list/recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { IngredientListComponent } from './recipe-list/ingredient-list/ingredient-list.component';
 
 registerLocaleData(localePT, 'pt-BR');
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -24,7 +25,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppComponent,
     RecipeListComponent,
     HomeComponent,
-    RecipeComponent
+    RecipeComponent,
+    IngredientListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatTableModule,
     FormsModule, 
     NgxMaskModule.forRoot({
        decimalMarker: "," 
