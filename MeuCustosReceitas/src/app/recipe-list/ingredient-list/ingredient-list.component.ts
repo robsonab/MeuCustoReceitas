@@ -10,8 +10,8 @@ import { IngredientService } from '../ingredient.service';
   styleUrls: ['./ingredient-list.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -25,17 +25,21 @@ export class IngredientListComponent implements OnInit {
   dataSource: MatTableDataSource<ingredient>;
   expandedElement: ingredient | null;
 
-  constructor(private ingredientService: IngredientService) {}
+  constructor(private ingredientService: IngredientService) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.ingredients);
   }
 
-  getCost(ingredient: ingredient) : number {
+  getCost(ingredient: ingredient): number {
     return this.ingredientService.getCost(ingredient);
   }
-  
-  public getTotalCost() : number{    
+
+  public getTotalCost(): number {
     return this.ingredients.map(t => this.ingredientService.getCost(t)).reduce((acc, value) => acc + value, 0)
-}
+  }
+
+  onEnter(){
+    
+  }
 }

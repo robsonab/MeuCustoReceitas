@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ingredient } from 'src/app/model/ingredient';
 import { IngredientService } from '../ingredient.service';
 
@@ -11,27 +11,30 @@ export class RecipeComponent implements OnInit {
 
   constructor(private ingredientService: IngredientService) { }
 
+  @Output()
+  onEnter = new EventEmitter();
+
   @Input()
   ingredient: ingredient;
 
-  pricePack: string; 
+  pricePack: string;
   qtyPack: string;
   qty: string;
 
-  changePricePack(){
+  changePricePack() {
     this.ingredient.pricePack = Number(this.pricePack.replace(",", "."));
   }
 
-  changeQtyPack(){
+  changeQtyPack() {
     this.ingredient.qtyPack = Number(this.qtyPack.replace(",", "."));
   }
 
-  changeQty(){
+  changeQty() {
     this.ingredient.qty = Number(this.qty.replace(",", "."));
   }
 
   ngOnInit() {
-    this.pricePack = this.ingredient.pricePack.toLocaleString('pt-BR', {minimumFractionDigits: 2})    
+    this.pricePack = this.ingredient.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
     this.qtyPack = this.ingredient.qtyPack.toString();
     this.qty = this.ingredient.qty.toString();
   }
@@ -39,5 +42,12 @@ export class RecipeComponent implements OnInit {
   @Output()
   getPriceCost() {
     return this.ingredientService.getCost(this.ingredient);
+  }
+
+  onKeyDown(e: any) {
+    if ((e.which == 13 || e.keyCode == 13)) {
+      e.preventDefault();
+      this.onEnter.emit();      
+    }
   }
 }

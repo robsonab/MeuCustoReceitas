@@ -1,17 +1,20 @@
 <div class="container">
-    <h1>Receitas</h1>
+    <div class="row">
+        <div class="col-12">
 
-    <div *ngFor="let recipe of recipes">
+            <h1>Receitas</h1>
+
+            <div *ngFor="let recipe of recipes">
+                
+                <div>
+                    {{recipe.name}}
+                </div>
         
-        <div>
-            {{recipe.name}}
-        </div>
-
-        <app-ingredient-list [ingredients]="recipe.ingredients">
-        </app-ingredient-list>
-
-
-
-    </div>
-
+                <app-ingredient-list [ingredients]="recipe.ingredients">
+                </app-ingredient-list>
+        
+        
+        
+            </div>
+        </div>    
 </div>

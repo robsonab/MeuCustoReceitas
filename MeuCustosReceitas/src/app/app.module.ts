@@ -10,7 +10,7 @@ import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatTableModule } from '@angular/material';
+import { MatExpansionModule, MatIconModule, MatInputModule, MatTableModule } from '@angular/material';
 import { RecipeComponent } from './recipe-list/recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
@@ -36,7 +36,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
-    FormsModule, 
+    MatIconModule,
+    MatExpansionModule,
+    FormsModule,         
     NgxMaskModule.forRoot({
        decimalMarker: "," 
         

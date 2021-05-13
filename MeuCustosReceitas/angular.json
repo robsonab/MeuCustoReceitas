@@ -63,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MeuCustosReceitas:build"
+            "browserTarget": "MeuCustosReceitas:build",
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {
