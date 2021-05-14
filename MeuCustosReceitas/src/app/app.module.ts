@@ -3,18 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatExpansionModule, MatIconModule, MatInputModule, MatTableModule } from '@angular/material';
-import { RecipeComponent } from './recipe-list/recipe/recipe.component';
-import { FormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
-import { IngredientListComponent } from './recipe-list/ingredient-list/ingredient-list.component';
+import { RecipeListModule } from './recipe-list/recipe-list.module';
 
 registerLocaleData(localePT, 'pt-BR');
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -23,10 +19,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeListComponent,
-    HomeComponent,
-    RecipeComponent,
-    IngredientListComponent
+    HomeComponent    
   ],
   imports: [
     BrowserModule,
@@ -34,11 +27,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatTableModule,
-    MatIconModule,
-    MatExpansionModule,
-    FormsModule,         
+    
+    RecipeListModule,    
     NgxMaskModule.forRoot({
        decimalMarker: "," 
         
