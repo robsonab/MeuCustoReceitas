@@ -13,7 +13,7 @@ export class NewIngredientComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.ingredient = new ingredient();    
+    this.ingredient = new ingredient();        
   }
 
 }

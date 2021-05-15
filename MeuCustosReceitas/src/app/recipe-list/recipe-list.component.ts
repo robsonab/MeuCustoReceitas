@@ -6,7 +6,7 @@ import { product } from '../model/product';
 import { recipe } from '../model/recipe';
 import { IngredientService } from './ingredient.service';
 import { RecipeComponent } from './recipe/recipe.component';
-
+import { RecipeService } from '../repo/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,10 +16,6 @@ import { RecipeComponent } from './recipe/recipe.component';
 export class RecipeListComponent implements OnInit {
 
   recipes: recipe[];
-  products: product[];
-
-  jsonRecipes = 'assets/recipes.json';
-  jsonProducts = 'assets/products.json';
 
   @ViewChild('recipe')
   recipe: RecipeComponent[];
@@ -28,28 +24,11 @@ export class RecipeListComponent implements OnInit {
 
   total: number;
   constructor(private http: HttpClient,
+    private recipeService: RecipeService,
     private ingredientService: IngredientService) { }
 
   ngOnInit() {
-
-    this.http.get<product[]>(this.jsonProducts).subscribe(response => {
-      this.products = response;
-    }).add(() => {
-      this.http.get<recipe[]>(this.jsonRecipes).subscribe(response => {
-        this.recipes = response;
-        this.loadProducts()
-      })
-    });
-  }
-
-  loadProducts() {
-    this.recipes.forEach(recipe => {
-      recipe.ingredients.forEach(ingredient => {
-        ingredient.product = this.products.find(p => p.code == ingredient.productCode)
-      });
-    });
-
-    console.log(this.recipes)
+    this.recipes = this.recipeService.getAll();    
   }
 
   getCost(ingredient: ingredient): number {

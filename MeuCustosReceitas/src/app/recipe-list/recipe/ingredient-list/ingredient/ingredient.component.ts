@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ingredient } from 'src/app/model/ingredient';
 import { product } from 'src/app/model/product';
+import { ProductService } from 'src/app/repo/product.service';
 import { IngredientService } from '../../../ingredient.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { IngredientService } from '../../../ingredient.service';
 })
 export class IngredientComponent implements OnInit {
 
-  constructor(private ingredientService: IngredientService) { }
+  constructor(private ingredientService: IngredientService,
+          private productService: ProductService) { }
 
   @Output()
   onEnter = new EventEmitter();
@@ -24,10 +26,12 @@ export class IngredientComponent implements OnInit {
 
   changePricePack() {
     this.ingredient.product.pricePack = Number(this.pricePack.replace(",", "."));
+    this.productService.update(this.ingredient.product);
   }
 
   changeQtyPack() {
     this.ingredient.product.qtyPack = Number(this.qtyPack.replace(",", "."));
+    this.productService.update(this.ingredient.product);
   }
 
   changeQty() {

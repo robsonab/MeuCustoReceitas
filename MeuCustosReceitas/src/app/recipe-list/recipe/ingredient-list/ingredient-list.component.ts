@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ingredient } from 'src/app/model/ingredient';
+import { RecipeService } from 'src/app/repo/recipe.service';
 import { IngredientService } from '../../ingredient.service';
 import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
 
@@ -28,6 +29,7 @@ export class IngredientListComponent implements OnInit {
   expandedElement: ingredient | null;
 
   constructor(private ingredientService: IngredientService,
+              private recipeService: RecipeService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -46,7 +48,8 @@ export class IngredientListComponent implements OnInit {
     var index = this.ingredients.indexOf(ingredient);
     if (index !== -1) {
       this.ingredients.splice(index, 1);
-    }
+    }    
+    this.recipeService.saveChanges();
   }
 
   newIngredient(){
@@ -57,6 +60,7 @@ export class IngredientListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {      
       if(result){
         this.ingredients.push(result);
+        this.recipeService.saveChanges();
       }
     });
   }
