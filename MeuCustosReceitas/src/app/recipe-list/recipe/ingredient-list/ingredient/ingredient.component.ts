@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ingredient } from 'src/app/model/ingredient';
+import { product } from 'src/app/model/product';
 import { IngredientService } from '../../../ingredient.service';
 
 @Component({
@@ -22,11 +23,11 @@ export class IngredientComponent implements OnInit {
   qty: string;
 
   changePricePack() {
-    this.ingredient.pricePack = Number(this.pricePack.replace(",", "."));
+    this.ingredient.product.pricePack = Number(this.pricePack.replace(",", "."));
   }
 
   changeQtyPack() {
-    this.ingredient.qtyPack = Number(this.qtyPack.replace(",", "."));
+    this.ingredient.product.qtyPack = Number(this.qtyPack.replace(",", "."));
   }
 
   changeQty() {
@@ -34,8 +35,11 @@ export class IngredientComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pricePack = this.ingredient.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
-    this.qtyPack = this.ingredient.qtyPack.toString();
+    if (!this.ingredient.product) {
+      this.ingredient.product = new product();
+    }
+    this.pricePack = this.ingredient.product.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
+    this.qtyPack = this.ingredient.product.qtyPack.toString();
     this.qty = this.ingredient.qty.toString();
   }
 
@@ -47,7 +51,7 @@ export class IngredientComponent implements OnInit {
   onKeyDown(e: any) {
     if ((e.which == 13 || e.keyCode == 13)) {
       e.preventDefault();
-      this.onEnter.emit();      
+      this.onEnter.emit();
     }
   }
 }

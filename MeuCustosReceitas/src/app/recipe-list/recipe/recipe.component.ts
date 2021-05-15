@@ -22,11 +22,11 @@ export class RecipeComponent implements OnInit {
   qty: string;
 
   changePricePack() {
-    this.ingredient.pricePack = Number(this.pricePack.replace(",", "."));
+    this.ingredient.product.pricePack = Number(this.pricePack.replace(",", "."));
   }
 
   changeQtyPack() {
-    this.ingredient.qtyPack = Number(this.qtyPack.replace(",", "."));
+    this.ingredient.product.qtyPack = Number(this.qtyPack.replace(",", "."));
   }
 
   changeQty() {
@@ -34,8 +34,8 @@ export class RecipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pricePack = this.ingredient.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
-    this.qtyPack = this.ingredient.qtyPack.toString();
+    this.pricePack = this.ingredient.product.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
+    this.qtyPack = this.ingredient.product.qtyPack.toString();
     this.qty = this.ingredient.qty.toString();
   }
 

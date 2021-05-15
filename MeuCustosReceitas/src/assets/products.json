@@ -1,0 +1,51 @@
+[
+    {
+        "code": "Ovos",
+        "name": "Ovos",
+        "pricePack": 13,
+        "qtyPack": 30,
+        "unit": "unidades"
+    },
+    {
+        "code": "Açúcar Refinado",
+        "name": "Açúcar Refinado",
+        "pricePack": 2.25,
+        "qtyPack": 1000,
+        "unit": "gramas"
+    },
+    {
+        "code": "Óleo",
+        "name": "Óleo",
+        "pricePack": 8.89,
+        "qtyPack": 1000,
+        "unit": "gramas"
+    },
+    {
+        "code": "Leite em pó",
+        "name": "Leite em pó",
+        "pricePack": 12,
+        "qtyPack": 3000,
+        "unit": "gramas"
+    },
+    {
+        "code": "Fermento em pó",
+        "name": "Fermento em pó",
+        "pricePack": 2.49,
+        "qtyPack": 100,
+        "unit": "gramas"
+    },
+    {
+        "code": "Farinha de Trigo",
+        "name": "Farinha de Trigo",
+        "pricePack": 15.99,
+        "qtyPack": 5000,
+        "unit": "gramas"
+    },
+    {
+        "code": "Chocolate em pó",
+        "name": "Chocolate em pó",
+        "pricePack": 20.7,
+        "qtyPack": 1000,
+        "unit": "gramas"
+    }
+]

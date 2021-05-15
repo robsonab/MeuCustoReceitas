@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Bolo",
+        "ingredients": [
+            {
+                "productCode": "Ovos",
+                "qty": 3
+            },
+            {
+                "productCode": "Açúcar Refinado",
+                "qty": 180
+            },
+            {
+                "productCode": "Óleo",
+                "qty": 80
+            },
+            {
+                "productCode": "Leite em pó",
+                "qty": 150
+            },
+            {
+                "productCode": "Fermento em pó",
+                "qty": 10
+            },
+            {
+                "productCode": "Farinha de Trigo",
+                "qty": 200
+            },
+            {
+                "productCode": "Chocolate em pó",
+                "qty": 40
+            }
+        ]
+    },
+    {        
+        "name": "Brigadeiro",
+        "ingredients": [
+            {
+                "productCode": "Ovos",
+                "qty": 1
+            },
+            {
+                "productCode": "Açúcar Refinado",
+                "qty": 180
+            }
+        ]
+    }
+]

@@ -8,7 +8,12 @@ export class IngredientService {
 
   constructor() { }
 
-  getCost(ingredient: ingredient){
-    return (ingredient.pricePack / ingredient.qtyPack) * ingredient.qty;
+  getCost(ingredient: ingredient) {
+    if (ingredient.product) {
+      return (ingredient.product.pricePack / ingredient.product.qtyPack) * ingredient.qty;
+    }
+    else{
+      return 0;
+    }
   }
 }

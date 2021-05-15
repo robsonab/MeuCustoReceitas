@@ -51,13 +51,10 @@ export class IngredientListComponent implements OnInit {
 
   newIngredient(){
     const dialogRef = this.dialog.open(NewIngredientComponent, {
-      width: '250px',
-      data: {name: "", animal: ""}
+      width: '750px'   
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+    dialogRef.afterClosed().subscribe(result => {      
       if(result){
         this.ingredients.push(result);
       }
