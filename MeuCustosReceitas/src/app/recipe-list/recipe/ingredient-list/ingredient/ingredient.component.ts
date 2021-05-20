@@ -17,6 +17,9 @@ export class IngredientComponent implements OnInit {
   @Output()
   onEnter = new EventEmitter();
 
+  @Output()
+  onChange = new EventEmitter();
+
   @Input()
   ingredient: ingredient;
 
@@ -27,15 +30,18 @@ export class IngredientComponent implements OnInit {
   changePricePack() {
     this.ingredient.product.pricePack = Number(this.pricePack.replace(",", "."));
     this.productService.update(this.ingredient.product);
+    this.onChange.emit();
   }
 
   changeQtyPack() {
     this.ingredient.product.qtyPack = Number(this.qtyPack.replace(",", "."));
     this.productService.update(this.ingredient.product);
+    this.onChange.emit();
   }
 
   changeQty() {
     this.ingredient.qty = Number(this.qty.replace(",", "."));
+    this.onChange.emit();
   }
 
   ngOnInit() {

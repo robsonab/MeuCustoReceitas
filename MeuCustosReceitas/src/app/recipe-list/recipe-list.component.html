@@ -4,15 +4,8 @@
 
             <h1>Receitas</h1>
 
-            <div *ngFor="let recipe of recipes">
-                
-                <div>
-                    {{recipe.name}}
-                </div>
-        
-                <app-ingredient-list [ingredients]="recipe.ingredients">
-                </app-ingredient-list>
-        
+            <div *ngFor="let recipe of recipes">                
+                <app-recipe [recipe]="recipe"></app-recipe>                
             </div>
         </div>    
 </div>

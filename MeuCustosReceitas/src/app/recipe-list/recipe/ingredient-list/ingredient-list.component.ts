@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ingredient } from 'src/app/model/ingredient';
+import { recipe } from 'src/app/model/recipe';
 import { ProductService } from 'src/app/repo/product.service';
 import { RecipeService } from 'src/app/repo/recipe.service';
 import { IngredientService } from '../../ingredient.service';
@@ -23,7 +24,7 @@ import { NewIngredientComponent } from './new-ingredient/new-ingredient.componen
 export class IngredientListComponent implements OnInit {
 
   @Input()
-  ingredients: ingredient[] = [];
+  recipe: recipe;
 
   displayedColumns: string[] = ['name', 'cost'];
   dataSource: MatTableDataSource<ingredient>;
@@ -35,7 +36,7 @@ export class IngredientListComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.ingredients);
+    this.dataSource = new MatTableDataSource(this.recipe.ingredients);
   }
 
   getCost(ingredient: ingredient): number {
@@ -43,15 +44,16 @@ export class IngredientListComponent implements OnInit {
   }
 
   public getTotalCost(): number {
-    return this.ingredients.map(t => this.ingredientService.getCost(t)).reduce((acc, value) => acc + value, 0)
+    return this.recipe.ingredients.map(t => this.ingredientService.getCost(t)).reduce((acc, value) => acc + value, 0)
   }
 
   onDelete(ingredient: ingredient) {
-    var index = this.ingredients.indexOf(ingredient);
+    console.log("delete")
+    var index = this.recipe.ingredients.indexOf(ingredient);
     if (index !== -1) {
-      this.ingredients.splice(index, 1);
+      this.recipe.ingredients.splice(index, 1);
     }
-    this.recipeService.saveChanges();
+    this.recipeService.update(this.recipe);
   }
 
   newIngredient() {
@@ -60,20 +62,21 @@ export class IngredientListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log("Save")
-        console.log(result);
+      if (result) {        
         var newIngredient = result as ingredient;
         if (!newIngredient.product.code) {
-          newIngredient.product.code = "prod" + this.ingredients.length.toString()
+          newIngredient.product.code = "prod" + this.recipe.ingredients.length.toString()
           newIngredient.productCode = newIngredient.product.code
         }
         
-        this.ingredients.push(newIngredient);
-        this.productService.addOrUpdate(newIngredient.product)
-        this.recipeService.saveChanges();
+        this.recipe.ingredients.push(newIngredient);
+        this.productService.addOrUpdate(newIngredient.product)      
+        this.recipeService.addOrUpdate(this.recipe);
       }
     });
   }
 
+  ingredientChanged(){
+    this.recipeService.addOrUpdate(this.recipe);
+  }
 }
