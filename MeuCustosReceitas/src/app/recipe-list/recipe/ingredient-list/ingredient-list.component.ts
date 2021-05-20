@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ingredient } from 'src/app/model/ingredient';
+import { ProductService } from 'src/app/repo/product.service';
 import { RecipeService } from 'src/app/repo/recipe.service';
 import { IngredientService } from '../../ingredient.service';
 import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
@@ -29,8 +30,9 @@ export class IngredientListComponent implements OnInit {
   expandedElement: ingredient | null;
 
   constructor(private ingredientService: IngredientService,
-              private recipeService: RecipeService,
-              private dialog: MatDialog) { }
+    private recipeService: RecipeService,
+    private productService: ProductService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.ingredients);
@@ -48,18 +50,27 @@ export class IngredientListComponent implements OnInit {
     var index = this.ingredients.indexOf(ingredient);
     if (index !== -1) {
       this.ingredients.splice(index, 1);
-    }    
+    }
     this.recipeService.saveChanges();
   }
 
-  newIngredient(){
+  newIngredient() {
     const dialogRef = this.dialog.open(NewIngredientComponent, {
-      width: '750px'   
+      width: '750px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {      
-      if(result){
-        this.ingredients.push(result);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log("Save")
+        console.log(result);
+        var newIngredient = result as ingredient;
+        if (!newIngredient.product.code) {
+          newIngredient.product.code = "prod" + this.ingredients.length.toString()
+          newIngredient.productCode = newIngredient.product.code
+        }
+        
+        this.ingredients.push(newIngredient);
+        this.productService.addOrUpdate(newIngredient.product)
         this.recipeService.saveChanges();
       }
     });

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as data from "../../assets/recipes.json";
+import { product } from '../model/product';
 import { recipe } from '../model/recipe';
 import { StorageService } from '../services/storage.service';
 import { ProductService } from './product.service';
@@ -11,7 +12,7 @@ import { ProductService } from './product.service';
 export class RecipeService {
 
   private key = "recipes";
-
+  
   constructor(
     private storageService: StorageService,
     private productService: ProductService) { }

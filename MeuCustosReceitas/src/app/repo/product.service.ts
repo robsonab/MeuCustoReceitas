@@ -7,29 +7,57 @@ import { StorageService } from '../services/storage.service';
   providedIn: 'root'
 })
 export class ProductService {
-  
-  private key = "products"
 
-  constructor(private storageService: StorageService) { }
-  
-  getAll() : product[] {        
-    var products = this.storageService.getData(this.key);
-    if(!products){
-      this.storageService.setData(this.key, (data as any).default);  
-      products = this.storageService.getData(this.key);
-    }
-    return products;
+  private key = "products"
+  private products: product[];
+
+  constructor(private storageService: StorageService) {
+    this.products = this.getAll();
   }
 
-  update(product: product){
-    var products = this.getAll();       
-    var updProduct = products.find(c=> c.code == product.code);
+  getAll(): product[] {
+    if (!this.products) {
+      this.products = this.storageService.getData(this.key);
+      if (!this.products) {
+        this.storageService.setData(this.key, (data as any).default);
+        this.products = this.storageService.getData(this.key);
+      }
+    }
+    return this.products;
+  }
+
+  getProduct(code: string): product {
+    if (!code) { return null; }
+    return this.products.find(c => c.code == code);
+  }
+
+  private updateProduct(product: product, updProduct: product): void {
     updProduct.pricePack = product.pricePack
     updProduct.qtyPack = product.qtyPack
     updProduct.unit = product.unit
     updProduct.name = product.name
-    
-    this.storageService.setData(this.key, products);
   }
 
+  update(product: product) {
+    var updProduct = this.getProduct(product.code)
+    if (updProduct) {
+      this.updateProduct(product, updProduct);
+      this.save();
+    }
+  }
+
+  addOrUpdate(product: product) {
+    var updProduct = this.getProduct(product.code)
+    if (updProduct) {
+      this.updateProduct(product, updProduct);
+    }
+    else {
+      this.products.push(updProduct)
+    }
+    this.save();
+  }
+
+  private save(): void {
+    this.storageService.setData(this.key, this.products);
+  }
 }
