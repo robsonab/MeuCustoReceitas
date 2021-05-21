@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { ingredient } from 'src/app/model/ingredient';
+import { product } from 'src/app/model/product';
+import { ProductService } from 'src/app/repo/product.service';
+import { IngredientComponent } from '../ingredient/ingredient.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @Component({
   selector: 'app-new-ingredient',
@@ -9,11 +14,41 @@ import { ingredient } from 'src/app/model/ingredient';
 export class NewIngredientComponent implements OnInit {
 
   ingredient: ingredient;
-
-  constructor() { }
+  products: product[];
+  
+  @ViewChild("newIngredient", {static: true})
+  newIngredient: IngredientComponent;
+  
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
-    this.ingredient = new ingredient();    
+    this.ingredient = new ingredient();
+    this.products = this.productService.getAll().sort((a, b) => a.name > b.name ? 1 : -1);
   }
 
+  onChanged(code: any){
+    if(code){
+      this.ingredient.product = this.products.find(c=> c.code == code) 
+      this.ingredient.productCode = this.ingredient.product.code;
+      this.newIngredient.refresh();
+    }
+  }
+
+  newProduct(){
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {        
+        var product = result as product;
+        this.productService.addOrUpdate(product);
+        this.ingredient.product = product;
+        this.ingredient.productCode = this.ingredient.product.code;        
+      }
+    });
+  }
 }

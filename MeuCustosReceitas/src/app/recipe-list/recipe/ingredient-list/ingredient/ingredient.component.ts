@@ -44,13 +44,17 @@ export class IngredientComponent implements OnInit {
     this.onChange.emit();
   }
 
+  refresh(){
+    this.pricePack = this.ingredient.product.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
+    this.qtyPack = this.ingredient.product.qtyPack.toString();
+    this.qty = this.ingredient.qty.toString();
+  }
+
   ngOnInit() {
     if (!this.ingredient.product) {
       this.ingredient.product = new product();
     }
-    this.pricePack = this.ingredient.product.pricePack.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
-    this.qtyPack = this.ingredient.product.qtyPack.toString();
-    this.qty = this.ingredient.qty.toString();
+    this.refresh();
   }
 
   @Output()

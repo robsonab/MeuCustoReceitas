@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Novo produto</h1>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row">
+            <mat-form-field class="col-12"> 
+                <mat-label>Descrição</mat-label>
+                <input matInput [(ngModel)]="product.name">
+            </mat-form-field>
+            <mat-form-field class="col-12"> 
+                <mat-label>Unid. Medida</mat-label>
+                <input matInput [(ngModel)]="product.unit">
+            </mat-form-field>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" [mat-dialog-close]="product" cdkFocusInitial>Adicionar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

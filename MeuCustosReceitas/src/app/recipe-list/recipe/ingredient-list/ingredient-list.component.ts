@@ -47,8 +47,7 @@ export class IngredientListComponent implements OnInit {
     return this.recipe.ingredients.map(t => this.ingredientService.getCost(t)).reduce((acc, value) => acc + value, 0)
   }
 
-  onDelete(ingredient: ingredient) {
-    console.log("delete")
+  onDelete(ingredient: ingredient) {    
     var index = this.recipe.ingredients.indexOf(ingredient);
     if (index !== -1) {
       this.recipe.ingredients.splice(index, 1);

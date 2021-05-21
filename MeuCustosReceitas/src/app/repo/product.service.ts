@@ -47,12 +47,14 @@ export class ProductService {
   }
 
   addOrUpdate(product: product) {
-    console.log("add")
     var updProduct = this.getProduct(product.code)
     if (updProduct) {
       this.updateProduct(product, updProduct);
     }
     else {
+      if (!product.code) {
+        product.code = "PR" + this.products.length + 1;
+      }
       this.products.push(product)
     }
     this.save();
