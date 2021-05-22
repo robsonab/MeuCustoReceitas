@@ -2,7 +2,7 @@
     <mat-expansion-panel hideToggle disabled>
         <mat-expansion-panel-header>
             <mat-panel-title class="fw-bold">
-                <div class="col-1">
+                <div class="col-2 col-md-1">
                     <span class="material-icons icon-add" (click) = "newIngredient()" >
                         add_circle
                     </span>
@@ -19,7 +19,7 @@
     <mat-expansion-panel *ngFor="let ingredient of recipe.ingredients">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <div class="col-1">
+                <div class="col-2 col-md-1 pr-2">
                     <span class="material-icons icon-trash fs-2" (click)="onDelete(ingredient)">
                         clear
                     </span>
@@ -38,11 +38,11 @@
     </mat-expansion-panel>
     <mat-expansion-panel hideToggle disabled>
         <mat-expansion-panel-header>
-            <mat-panel-title class="fw-bold">
-                <div class="col-9 header  pt-2">
+            <mat-panel-title class="fw-bold">                
+                <div class="offset-2 offset-md-1 col-8 col-md-9  header pt-2">
                     Total
                 </div>
-                <div class="col-3 header cost-column  pt-2">
+                <div class="col-2 header cost-column  pt-2">
                     {{getTotalCost() | currency : "BRL"}}
                 </div>
             </mat-panel-title>

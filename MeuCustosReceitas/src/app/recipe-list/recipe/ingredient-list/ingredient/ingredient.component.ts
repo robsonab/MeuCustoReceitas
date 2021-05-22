@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ingredient } from 'src/app/model/ingredient';
 import { product } from 'src/app/model/product';
 import { ProductService } from 'src/app/repo/product.service';
@@ -22,6 +22,9 @@ export class IngredientComponent implements OnInit {
 
   @Input()
   ingredient: ingredient;
+
+  @ViewChild("pricePackTextBox", {static : true})
+  pricePackTextBox: ElementRef;
 
   pricePack: string;
   qtyPack: string;
@@ -67,5 +70,10 @@ export class IngredientComponent implements OnInit {
       e.preventDefault();
       this.onEnter.emit();
     }
+  }
+
+  focus(){
+    this.pricePackTextBox.nativeElement.focus();
+    this.pricePackTextBox.nativeElement.select();
   }
 }

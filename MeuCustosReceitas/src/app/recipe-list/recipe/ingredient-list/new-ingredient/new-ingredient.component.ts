@@ -47,7 +47,8 @@ export class NewIngredientComponent implements OnInit {
         var product = result as product;
         this.productService.addOrUpdate(product);
         this.ingredient.product = product;
-        this.ingredient.productCode = this.ingredient.product.code;        
+        this.ingredient.productCode = this.ingredient.product.code;    
+        this.newIngredient.focus();
       }
     });
   }

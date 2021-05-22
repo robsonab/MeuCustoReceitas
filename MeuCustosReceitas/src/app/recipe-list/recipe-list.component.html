@@ -1,8 +1,28 @@
 <div class="container">
+    <h1>Receitas</h1>
+
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let recipe of recipes">            
+            
+            <mat-expansion-panel-header>
+                <mat-panel-title class="fw-bold">
+                    {{recipe.name}}            
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            
+            <app-ingredient-list [recipe]="recipe">
+            </app-ingredient-list>
+            
+        </mat-expansion-panel>        
+        
+    </mat-accordion>
+    
+    
+    
     <div class="row">
         <div class="col-12">
 
-            <h1>Receitas</h1>
+            
 
             <div *ngFor="let recipe of recipes">                
                 <app-recipe [recipe]="recipe"></app-recipe>                
