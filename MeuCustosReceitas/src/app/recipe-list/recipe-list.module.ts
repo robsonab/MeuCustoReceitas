@@ -8,6 +8,7 @@ import { IngredientComponent } from './recipe/ingredient-list/ingredient/ingredi
 import { NewIngredientComponent } from './recipe/ingredient-list/new-ingredient/new-ingredient.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { NewProductComponent } from './recipe/ingredient-list/new-ingredient/new-product/new-product.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { NewProductComponent } from './recipe/ingredient-list/new-ingredient/new
     MatButtonModule,
     MatSelectModule,
     MatTabsModule,
+    SharedModule
   ],
   exports:[
     RecipeListComponent

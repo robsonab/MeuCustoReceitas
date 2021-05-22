@@ -11,6 +11,7 @@ import { LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { RecipeListModule } from './recipe-list/recipe-list.module';
+import { AlertComponent } from './shared/alert/alert.component';
 
 registerLocaleData(localePT, 'pt-BR');
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -19,7 +20,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent    
+    HomeComponent        
   ],
   imports: [
     BrowserModule,

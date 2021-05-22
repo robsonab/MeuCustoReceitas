@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { ingredient } from 'src/app/model/ingredient';
 import { product } from 'src/app/model/product';
 import { ProductService } from 'src/app/repo/product.service';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
 import { IngredientComponent } from '../ingredient/ingredient.component';
 import { NewProductComponent } from './new-product/new-product.component';
 
@@ -21,7 +22,8 @@ export class NewIngredientComponent implements OnInit {
   
   constructor(
     private productService: ProductService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public dialogRef: MatDialogRef<IngredientComponent>
   ) { }
 
   ngOnInit(): void {
@@ -52,4 +54,28 @@ export class NewIngredientComponent implements OnInit {
       }
     });
   }
+
+  add(){
+    var errors: string[] =[];
+
+    if(!this.ingredient.productCode){
+      errors.push("Selecione um ingrediente")      
+    }
+
+    if(errors.length){
+      const dialogRef = this.dialog.open(AlertComponent, {
+        width: '400px',
+        data: {
+          title: 'Aviso',
+          body: "",
+          list: errors
+        },
+      });
+    }
+    else{
+      this.dialogRef.close(this.ingredient);
+    }
+  }
+
 }
+

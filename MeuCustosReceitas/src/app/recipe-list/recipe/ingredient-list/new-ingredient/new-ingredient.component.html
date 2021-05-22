@@ -2,8 +2,6 @@
 
 
 <mat-dialog-content class="mat-typography">
-
-
     <div class="container-fluid">
         <div class="row">
             <mat-form-field appearance="fill" class="col-11">
@@ -13,10 +11,12 @@
                     <mat-option [value]="product.code" *ngFor="let product of products">{{product.name}}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+                
+            </mat-form-field>            
             <span class="material-icons icon-add col-1 fs-1 text-left p-0 m-0  pr-4 pt-2" (click)="newProduct()">
                 add_circle
             </span>
+            
         </div>
 
         <div class="row">
@@ -27,7 +27,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-    <button mat-button [mat-dialog-close]="true" [mat-dialog-close]="ingredient" cdkFocusInitial>Adicionar</button>
+    <button mat-button (click)="add()" cdkFocusInitial>Adicionar</button>
     <button mat-button mat-dialog-close>Cancelar</button>
 </mat-dialog-actions>
 
