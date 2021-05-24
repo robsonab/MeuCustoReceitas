@@ -13,10 +13,6 @@ export class RecipeComponent implements OnInit {
   @Input()
   recipe: recipe;
 
-  recipeChanged(){
-    console.log("changed")
-  }
-
   ngOnInit() {
   }
 

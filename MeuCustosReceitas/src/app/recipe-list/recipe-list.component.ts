@@ -28,7 +28,7 @@ export class RecipeListComponent implements OnInit {
     private ingredientService: IngredientService) { }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getAll();    
+    this.recipes = this.recipeService.getAll();        
   }
 
   getCost(ingredient: ingredient): number {

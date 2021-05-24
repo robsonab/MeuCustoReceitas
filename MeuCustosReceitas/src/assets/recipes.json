@@ -1,49 +1,65 @@
 [
     {
         "code": "rep1",
-        "name": "Bolo",
+        "name": "Bolo (Massa)",
         "ingredients": [
             {
                 "productCode": "Ovos",
-                "qty": 3
+                "qty": "3"
             },
             {
                 "productCode": "Açúcar Refinado",
-                "qty": 180
+                "qty": "180"
             },
             {
                 "productCode": "Óleo",
-                "qty": 80
+                "qty": "80"
             },
             {
                 "productCode": "Leite em pó",
-                "qty": 150
+                "qty": "150"
             },
             {
                 "productCode": "Fermento em pó",
-                "qty": 10
+                "qty": "10"
             },
             {
-                "productCode": "Farinha de Trigo",
-                "qty": 200
+                "productCode": "Farinha de trigo",
+                "qty": "200"
             },
             {
                 "productCode": "Chocolate em pó",
-                "qty": 40
+                "qty": "40"
             }
         ]
     },
-    {        
+    {
         "code": "rep2",
-        "name": "Brigadeiro",
+        "name": "Recheio Coco",
         "ingredients": [
             {
-                "productCode": "Ovos",
-                "qty": 1
+                "productCode": "Leite Condensado Caixa",
+                "qty": "790"
             },
             {
-                "productCode": "Açúcar Refinado",
-                "qty": 180
+                "productCode": "Creme de leite",
+                "qty": "200"
+            },
+            {
+                "productCode": "Coco ralado",
+                "qty": "200"
+            },
+            {
+                "productCode": "Chantily",
+                "qty": "300"
+            },
+            {
+                "productCode": "Leite Condensado Caixa",
+                "qty": "395"
+            },
+            {
+                "productCode": "Leite em pó (Ninho)",
+                "qty": "30"
             }
         ]
     }

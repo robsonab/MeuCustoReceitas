@@ -62,6 +62,10 @@ export class NewIngredientComponent implements OnInit {
       errors.push("Selecione um ingrediente")      
     }
 
+    if(this.ingredient.qty == 0){
+      errors.push("Informe a quantidade utilizada")
+    }
+
     if(errors.length){
       const dialogRef = this.dialog.open(AlertComponent, {
         width: '400px',

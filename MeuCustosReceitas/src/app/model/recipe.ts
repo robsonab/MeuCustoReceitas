@@ -5,5 +5,8 @@ export class recipe{
     name: string;
     ingredients: ingredient[]
     
+    constructor() {
+        this.ingredients = []
+    }
     
 }

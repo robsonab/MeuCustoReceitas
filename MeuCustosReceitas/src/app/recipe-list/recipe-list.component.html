@@ -2,30 +2,34 @@
     <h1>Receitas</h1>
 
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let recipe of recipes">            
-            
+        <mat-expansion-panel *ngFor="let recipe of recipes">
+
             <mat-expansion-panel-header>
                 <mat-panel-title class="fw-bold">
-                    {{recipe.name}}            
+                    <div class="col-10">
+                        {{recipe.name}}
+                    </div>
+                    <div class="col-2">
+                        {{getTotal(recipe) | currency : "BRL"}}
+                    </div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            
+
             <app-ingredient-list [recipe]="recipe">
             </app-ingredient-list>
-            
-        </mat-expansion-panel>        
-        
+
+
+        </mat-expansion-panel>
+
     </mat-accordion>
-    
-    
-    
+
+
+
     <div class="row">
         <div class="col-12">
 
-            
-
-            <div *ngFor="let recipe of recipes">                
-                <app-recipe [recipe]="recipe"></app-recipe>                
+            <div *ngFor="let recipe of recipes">
+                <app-recipe [recipe]="recipe"></app-recipe>
             </div>
-        </div>    
-</div>
+        </div>
+    </div>
