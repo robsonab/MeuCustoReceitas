@@ -1,30 +1,28 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ingredient } from '../model/ingredient';
-import { product } from '../model/product';
 import { recipe } from '../model/recipe';
 import { IngredientService } from './ingredient.service';
-import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeService } from '../repo/recipe.service';
+import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css']
+  styleUrls: ['./recipe-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RecipeListComponent implements OnInit {
 
   recipes: recipe[];
-
-  @ViewChild('recipe')
-  recipe: RecipeComponent[];
-
+  
   dataSource: MatTableDataSource<ingredient>;
 
   total: number;
-  constructor(private http: HttpClient,
+  constructor(
     private recipeService: RecipeService,
+    private dialog: MatDialog,
     private ingredientService: IngredientService) { }
 
   ngOnInit() {
@@ -39,7 +37,23 @@ export class RecipeListComponent implements OnInit {
     return recipe.ingredients.map(t => this.ingredientService.getCost(t)).reduce((acc, value) => acc + value, 0)
   }
 
-  onClick() {
-    console.log(this.recipe);
+  newRecipe(){
+    const dialogRef = this.dialog.open(NewRecipeComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {        
+        var newRecipe = new recipe();
+        newRecipe.name = result
+        this.recipeService.addOrUpdate(newRecipe);    
+        this.recipes = this.recipeService.getAll();
+      }
+    });
   }
+
+  onDelete(recipe: recipe) {
+    this.recipeService.delete(recipe);
+  }
+
 }

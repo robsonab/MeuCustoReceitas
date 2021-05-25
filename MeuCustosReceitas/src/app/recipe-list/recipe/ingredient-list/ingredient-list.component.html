@@ -20,15 +20,15 @@
     <mat-expansion-panel *ngFor="let ingredient of recipe.ingredients">
         <mat-expansion-panel-header>
             <mat-panel-title>                               
-                <div class="col-2 col-md-1 pr-2">
-                    <span class="material-icons icon-trash fs-2" (click)="onDelete(ingredient)">
+                
+                    <span class="col-2 col-md-1 pe-2 material-icons icon-trash fs-3" (click)="onDelete(ingredient)">
                         clear
                     </span>
-                </div>
-                <div class="col-8 pt-1">
+                
+                <div class="col-7 pt-1">
                     {{ingredient.product.name}}
                 </div>
-                <div class="col-2  pt-1 cost-column">
+                <div class="col-3 pe-1 pt-1 cost-column">
                     {{ getCost(ingredient) | currency: "BRL" }}
                 </div>
             </mat-panel-title>

@@ -2,34 +2,54 @@
     <h1>Receitas</h1>
 
     <mat-accordion>
+        <mat-expansion-panel hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title class="fw-bold">
+                    <div class="col-3 col-md-1 text-center ">
+                        <span class="material-icons icon-add" (click)="newRecipe()">
+                            add_circle
+                        </span>
+                    </div>
+                    <div class="col-6 header pt-1">
+                        Receitas
+                    </div>
+                    <div class="col-3 header text-center pt-1">
+                        Custo
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
         <mat-expansion-panel *ngFor="let recipe of recipes">
 
             <mat-expansion-panel-header>
                 <mat-panel-title class="fw-bold">
-                    <div class="col-10">
+                    <div class="col-3 col-md-1">
+                        <span class="material-icons fs-3 me-2">
+                            content_copy
+                        </span>
+                        <span class="material-icons icon-trash fs-2 ml-2" (click)="onDelete(recipe)">
+                            clear
+                        </span>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="col-6 pt-1">
                         {{recipe.name}}
                     </div>
-                    <div class="col-2">
+                    <div class="col-3  pt-1 cost-column">
                         {{getTotal(recipe) | currency : "BRL"}}
                     </div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
+
             <app-ingredient-list [recipe]="recipe">
             </app-ingredient-list>
+
+
 
 
         </mat-expansion-panel>
 
     </mat-accordion>
-
-
-
-    <div class="row">
-        <div class="col-12">
-
-            <div *ngFor="let recipe of recipes">
-                <app-recipe [recipe]="recipe"></app-recipe>
-            </div>
-        </div>
-    </div>

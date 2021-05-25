@@ -36,7 +36,7 @@ export class RecipeService {
     return this.recipes;
   }
 
-  getRecipe(code: string): recipe{
+  getRecipe(code: string): recipe {
     if (!code) { return null; }
     return this.recipes.find(c => c.code == code);
   }
@@ -53,14 +53,18 @@ export class RecipeService {
     }
   }
 
-  addOrUpdate(recipe: recipe) {    
-    var updRecipe = this.getRecipe(recipe.code)
-    if (updRecipe) {
-      this.updateRecipe(recipe, updRecipe);
-    }
-    else {
+  addOrUpdate(recipe: recipe) {
+    if (!recipe.code) {
+      recipe.code = "rec" + this.recipes.length + 1
       this.recipes.push(recipe)
     }
+    else {
+      var updRecipe = this.getRecipe(recipe.code)
+      if (updRecipe) {
+        this.updateRecipe(recipe, updRecipe);
+      }
+    }
+
     this.save();
   }
 
@@ -68,4 +72,11 @@ export class RecipeService {
     this.storageService.setData(this.key, this.recipes);
   }
 
+  delete(recipe: recipe) {
+    var index = this.recipes.indexOf(recipe);
+    if (index !== -1) {
+      this.recipes.splice(index, 1);
+    }
+    this.save();
+  }
 }

@@ -12,3 +12,7 @@
 .icon-add{
     color: blue;
 }
+
+.mat-expansion-panel-body{
+    padding: 0 10px 16px !important;
+}

@@ -6,7 +6,7 @@
         <div class="row">
             <mat-form-field appearance="fill" class="col-11">
                 <mat-label>Ingrediente</mat-label>
-                <mat-select [(value)]="this.ingredient.productCode" (selectionChange)="onChanged($event.value)">
+                <mat-select [(value)]="this.ingredient.productCode" (selectionChange)="onChanged($event.value)" cdkFocusInitial>
                     <mat-option></mat-option>
                     <mat-option [value]="product.code" *ngFor="let product of products">{{product.name}}
                     </mat-option>
@@ -27,7 +27,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-    <button mat-button (click)="add()" cdkFocusInitial>Adicionar</button>
+    <button mat-button (click)="add()" >Adicionar</button>
     <button mat-button mat-dialog-close>Cancelar</button>
 </mat-dialog-actions>
 
