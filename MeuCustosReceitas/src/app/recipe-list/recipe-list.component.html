@@ -1,25 +1,37 @@
 <div class="container">
     <h2>Minhas receitas:</h2>
 
-    <table class="table table-hover">
-        <tr>
-            <th>
-                Receita
-            </th>
-            <th>
-                Custo
-            </th>
-        </tr>
-        <tr *ngFor="let recipe of recipes">
-            <td>
-                {{recipe.name}}
-            </td>
-            <td>
-                {{getTotal(recipe) | currency : "BRL"}}
-            </td>
-        </tr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 60px;">
+                </th>
+                <th>
+                    Receita
+                </th>
+                <th align="right">
+                    Custo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recipe of recipes">
+                <td>
+                    <img src="../../assets/images/edit.png" class="img-fluid" width="30px">
+                </td>
+                <td vAlign="middle">
+                    {{recipe.name}}
+                </td>
+                <td align="right" vAlign="middle">
+                    {{getTotal(recipe) | currency : "BRL"}}
+                </td>
+            </tr>
+        </tbody>
     </table>
-
+    <button type="button" class="btn button-new border">
+        <span class="ms-4">Criar uma nova receita</span>
+    </button>
+    <!-- <br><br>
 
     <mat-accordion>
         <mat-expansion-panel hideToggle disabled>
@@ -73,4 +85,4 @@
         </mat-expansion-panel>
 
     </mat-accordion>
-    <button mat-button (click)="clear()">Limpar</button>
+    <button mat-button (click)="clear()">Limpar</button> -->
