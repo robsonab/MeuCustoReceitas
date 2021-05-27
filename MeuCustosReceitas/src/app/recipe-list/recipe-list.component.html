@@ -1,5 +1,25 @@
 <div class="container">
-    <h1>Receitas</h1>
+    <h2>Minhas receitas:</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Receita
+            </th>
+            <th>
+                Custo
+            </th>
+        </tr>
+        <tr *ngFor="let recipe of recipes">
+            <td>
+                {{recipe.name}}
+            </td>
+            <td>
+                {{getTotal(recipe) | currency : "BRL"}}
+            </td>
+        </tr>
+    </table>
+
 
     <mat-accordion>
         <mat-expansion-panel hideToggle disabled>
@@ -23,8 +43,8 @@
 
             <mat-expansion-panel-header>
                 <mat-panel-title class="fw-bold">
-                    <div class="col-3 col-md-1">
-                        <span class="material-icons fs-3 me-2">
+                    <div class="col-3 col-sm-2 col-md-2 col-lg-1">
+                        <span class="material-icons fs-3 me-2" (click)="onCopy(recipe)">
                             content_copy
                         </span>
                         <span class="material-icons icon-trash fs-2 ml-2" (click)="onDelete(recipe)">
@@ -53,3 +73,4 @@
         </mat-expansion-panel>
 
     </mat-accordion>
+    <button mat-button (click)="clear()">Limpar</button>

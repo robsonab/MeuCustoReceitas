@@ -56,4 +56,28 @@ export class RecipeListComponent implements OnInit {
     this.recipeService.delete(recipe);
   }
 
+  onCopy(recipeCopy: recipe){
+    const dialogRef = this.dialog.open(NewRecipeComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {        
+        var newRecipe = new recipe();
+        newRecipe.name = result
+
+        recipeCopy.ingredients.forEach(ingredient => {
+          newRecipe.ingredients.push(ingredient)
+        });
+        
+        this.recipeService.addOrUpdate(newRecipe);    
+        this.recipes = this.recipeService.getAll();
+      }
+    });
+  }
+
+  clear(){
+    this.recipeService.clear()
+    this.recipes = this.recipeService.getAll();
+  }
 }

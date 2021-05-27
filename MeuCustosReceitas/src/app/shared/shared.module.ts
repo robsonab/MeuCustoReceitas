@@ -2,20 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MessageComponent } from './message/message.component';
 import { AlertComponent } from './alert/alert.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
 @NgModule({
   declarations: [
     MessageComponent,
-    AlertComponent
+    AlertComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     MessageComponent,
-    AlertComponent
+    AlertComponent,
+    HeaderComponent
   ]
 
 })

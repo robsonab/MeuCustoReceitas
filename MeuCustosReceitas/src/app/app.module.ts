@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { RecipeListModule } from './recipe-list/recipe-list.module';
 import { AlertComponent } from './shared/alert/alert.component';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePT, 'pt-BR');
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -28,7 +29,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    SharedModule,
     RecipeListModule,    
     NgxMaskModule.forRoot({
        decimalMarker: "," 

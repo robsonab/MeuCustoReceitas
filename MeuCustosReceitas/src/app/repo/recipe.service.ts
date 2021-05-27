@@ -19,11 +19,16 @@ export class RecipeService {
     this.recipes = this.getAll();
   }
 
+  clear(){
+    this.recipes = null;    
+    this.storageService.deleteData(this.key);
+  }
+
   getAll(): recipe[] {
     if (!this.recipes) {
       var products = this.productService.getAll();
       this.recipes = this.storageService.getData(this.key) || (data as any).default;
-      if (!this.recipes) {
+      if (!this.recipes || this.recipes.length) {
         this.storageService.setData(this.key, (data as any).default);
         this.recipes = this.storageService.getData(this.key);
       }
