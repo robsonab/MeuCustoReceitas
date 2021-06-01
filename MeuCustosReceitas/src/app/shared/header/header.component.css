@@ -1,4 +1,8 @@
 .header{    
-    color:#531c02;
+    color:#883712;
     font-weight: bolder;    
+    background-color: #e4d2c7;
+    border-bottom-color: #c2978b;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }

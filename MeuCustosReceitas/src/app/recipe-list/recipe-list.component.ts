@@ -6,6 +6,7 @@ import { recipe } from '../model/recipe';
 import { IngredientService } from './ingredient.service';
 import { RecipeService } from '../repo/recipe.service';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -23,7 +24,9 @@ export class RecipeListComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private dialog: MatDialog,
-    private ingredientService: IngredientService) { }
+    private ingredientService: IngredientService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.getAll();        
@@ -50,6 +53,10 @@ export class RecipeListComponent implements OnInit {
         this.recipes = this.recipeService.getAll();
       }
     });
+  }
+
+  onEdit(recipe: recipe){
+    this.router.navigate(["recipe", recipe.code])
   }
 
   onDelete(recipe: recipe) {

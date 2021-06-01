@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Minhas receitas:</h2>
 
-    <table class="table table-striped">
+    <table class="table shadow p-3 mb-5 bg-body rounded">
         <thead>
             <tr>
                 <th style="width: 60px;">
@@ -17,7 +17,7 @@
         <tbody>
             <tr *ngFor="let recipe of recipes">
                 <td>
-                    <img src="../../assets/images/edit.png" class="img-fluid" width="30px">
+                    <img src="../../assets/images/edit.png" class="img-fluid" width="30px" style="cursor: pointer;" (click)=onEdit(recipe)>
                 </td>
                 <td vAlign="middle">
                     {{recipe.name}}

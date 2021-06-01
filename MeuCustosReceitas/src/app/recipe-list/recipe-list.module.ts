@@ -9,6 +9,7 @@ import { NewIngredientComponent } from './recipe/ingredient-list/new-ingredient/
 import { NewProductComponent } from './recipe/ingredient-list/new-ingredient/new-product/new-product.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     IngredientComponent,    
     NewIngredientComponent,
     NewProductComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    RecipeComponent
   ],
   imports: [
     CommonModule,
