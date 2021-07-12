@@ -1,0 +1,11 @@
+<div mat-dialog-title class="fs-12">
+    {{message}}
+</div>
+<div mat-dialog-actions class="text-center">
+    <button mat-button [mat-dialog-close]="true" class="btn me-3">
+        <i class="fa fa-check fa-2x text-success me-2"></i>Sim
+    </button>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial class="btn btn-light ms-3">
+        <i class="fa fa-close fa-2x me-2 text-danger"></i>Não
+    </button>
+</div>

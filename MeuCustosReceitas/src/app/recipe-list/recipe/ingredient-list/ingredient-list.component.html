@@ -2,10 +2,7 @@
     <mat-expansion-panel hideToggle disabled >
         <mat-expansion-panel-header>
             <mat-panel-title class="fw-bold">
-                <div class="col-2 col-md-1">                    
-                    <span class="material-icons icon-add" (click) = "newIngredient()" >
-                        add_circle
-                    </span>
+                <div class="col-2 col-md-1">                                        
                 </div>
                 <div class="col-8 header">
                     Ingrediente
@@ -19,11 +16,9 @@
     <mat-expansion-panel *ngFor="let ingredient of recipe.ingredients">
         <mat-expansion-panel-header>
             <mat-panel-title>                               
-                
-                    <span class="col-2 col-md-1 pe-2 material-icons icon-trash fs-3" (click)="onDelete(ingredient)">
-                        clear
-                    </span>
-                
+                <div class="col-2 col-md-1" (click)="onDelete(ingredient)">                    
+                    <i class="fa fa-trash fa-2x text-danger"></i>
+                </div>                 
                 <div class="col-7 pt-1">
                     {{ingredient.product.name}}
                 </div>
@@ -49,3 +44,9 @@
         </mat-expansion-panel-header>
     </mat-expansion-panel>
 </mat-accordion>
+<br>
+<button type="button" class="btn btn-add border" (click) = "newIngredient()">
+    
+        <i class="fa fa-plus-circle fa-2x text-primary"></i>
+        <span class="ms-2">Adicionar ingrediente</span>
+</button>

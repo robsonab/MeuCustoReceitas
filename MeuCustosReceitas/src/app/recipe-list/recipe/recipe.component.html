@@ -1,11 +1,17 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h2>{{recipe.name}}</h2>
+        <div class="col-7 pt-1">
+            <h2>{{recipe.name}} <span class="lk-alterar">(<span (click)="onChange()">Alterar</span>)</span></h2>            
+        </div>
+        <div class="col-5" style="text-align: right">
+            <a [routerLink]="['']" class="btn btn-link btn-back">
+                <i class="fa fa-arrow-circle-left text-success"></i>
+                <span  class="ms-2">Voltar</span>
+            </a>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12">            
             <app-ingredient-list [recipe]="recipe"></app-ingredient-list>
         </div>
     </div>

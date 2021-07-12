@@ -28,9 +28,11 @@
             </tr>
         </tbody>
     </table>
-    <button type="button" class="btn button-new border">
-        <span class="ms-4">Criar uma nova receita</span>
-    </button>
+    
+    <a [routerLink]="['recipe', 'new']" class="btn btn-link btn-back">
+        <i class="fa fa-2x fa-plus-circle btn-add"></i>
+        <span class="ms-2">Criar uma nova receita</span>
+    </a>
     <!-- <br><br>
 
     <mat-accordion>

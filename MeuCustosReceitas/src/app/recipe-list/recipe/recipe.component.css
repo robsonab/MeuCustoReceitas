@@ -1,0 +1,8 @@
+.lk-alterar{
+    font-size: small;    
+}
+
+.lk-alterar > span {
+    text-decoration: underline;
+    cursor: pointer;
+}

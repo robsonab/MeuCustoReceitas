@@ -7,6 +7,7 @@ import { recipe } from 'src/app/model/recipe';
 import { ProductService } from 'src/app/repo/product.service';
 import { RecipeService } from 'src/app/repo/recipe.service';
 import { AlertComponent } from 'src/app/shared/alert/alert.component';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IngredientService } from '../../ingredient.service';
 import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
 
@@ -49,11 +50,20 @@ export class IngredientListComponent implements OnInit {
   }
 
   onDelete(ingredient: ingredient) {    
-    var index = this.recipe.ingredients.indexOf(ingredient);
-    if (index !== -1) {
-      this.recipe.ingredients.splice(index, 1);
-    }
-    this.recipeService.update(this.recipe);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '400px',
+      data: 'Tem certeza que deseja remover o ingrediente?',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        var index = this.recipe.ingredients.indexOf(ingredient);
+        if (index !== -1) {
+          this.recipe.ingredients.splice(index, 1);
+        }
+        this.recipeService.update(this.recipe);
+      }
+    });   
   }
 
   newIngredient() {

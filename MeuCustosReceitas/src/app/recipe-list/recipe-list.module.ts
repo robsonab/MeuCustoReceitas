@@ -10,6 +10,8 @@ import { NewProductComponent } from './recipe/ingredient-list/new-ingredient/new
 import { SharedModule } from '../shared/shared.module';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RouterModule } from '@angular/router';
+import { RecipeNameComponent } from './recipe/recipe-name/recipe-name.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     NewIngredientComponent,
     NewProductComponent,
     NewRecipeComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipeNameComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     MatButtonModule,
     MatSelectModule,
     MatTabsModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports:[
     RecipeListComponent

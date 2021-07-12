@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MessageComponent } from './message/message.component';
 import { AlertComponent } from './alert/alert.component';
 import { HeaderComponent } from './header/header.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatButtonModule, MatDialogModule } from '@angular/material';
 
 
 
@@ -10,15 +12,19 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     MessageComponent,
     AlertComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   exports: [
     MessageComponent,
     AlertComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmationDialogComponent
   ]
 
 })
