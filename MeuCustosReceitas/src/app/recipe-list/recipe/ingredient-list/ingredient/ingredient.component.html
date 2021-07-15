@@ -1,0 +1,31 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row text-center">
+            <div class="col-12 col-lg-4">
+                <mat-form-field>
+                    <mat-label>Preço Embalagem</mat-label>
+                    <input matInput type='text' mask="separator.2" prefix="R$ " [(ngModel)]="pricePack" 
+                        thousandSeparator="." (keyup)="changePricePack()" class="text-center"  inputmode="decimal"
+                        (click)="$event.target.select()" (keydown)="onKeyDown($event)"
+                        #pricePackTextBox>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-lg-4">
+                <mat-form-field>
+                    <mat-label>Qtd. por Embalagem ({{ingredient?.product.unit}})</mat-label>
+                    <input matInput mask="separator.2" [(ngModel)]="qtyPack" (keyup)="changeQtyPack()"
+                        thousandSeparator="." class="text-center" inputmode="decimal"
+                        (click)="$event.target.select()">
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-lg-4">
+                <mat-form-field>
+                    <mat-label>Qtd. utilizada ({{ingredient.product.unit}})</mat-label>
+                    <input matInput mask="separator.2" [(ngModel)]="qty" inputmode="decimal"
+                    thousandSeparator="."  (keyup)="changeQty()" class="text-center"
+                    (click)="$event.target.select()">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    padding-top: 70px; font-size: 14px;
+    background-color: #e5834214;
+    font-size: 14px;
+    color:#883712 ;
+}
+
+.mat-expansion-panel{
+    background-color: white
+}
+
+.button-new {
+    width: 220px;
+    height: 40px;
+    padding-top: 5px;    
+    /* background: url('/assets/images/new.png') 5px 5px no-repeat;  */
+    background-size: 30px;    
+    color:#883712;
+    /* border-color: #c2978b !important;
+    border-style: solid !important;     */
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.btn-add{
+    /* font-size: 13px; */
+    font-weight: bold;
+    background-color: #ece5e159;
+    color: rgb(14, 14, 197);
+    /* color:#883712; */
+    /* border-color: #c2978b !important; */
+    /* border-style: solid !important;     */
+}
+
+.btn-back{
+    font-size: 13px;
+    font-weight: bold;    
+    color:#883712;    
+}
+
+.table, td{
+    color:#883712 
+}
+
+h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 18px;
+    font-weight: bold;
+}

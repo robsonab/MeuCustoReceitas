@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Adicionar ingrediente</h1>
+
+
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-11">
+                <mat-label>Ingrediente</mat-label>
+                <mat-select [(value)]="this.ingredient.productCode" (selectionChange)="onChanged($event.value)" cdkFocusInitial>
+                    <mat-option></mat-option>
+                    <mat-option [value]="product.code" *ngFor="let product of products">{{product.name}}
+                    </mat-option>
+                </mat-select>
+                
+            </mat-form-field>            
+            <span class="material-icons icon-add col-1 fs-1 text-left p-0 m-0  pr-4 pt-2" (click)="newProduct()">
+                add_circle
+            </span>
+            
+        </div>
+
+        <div class="row">
+            <app-ingredient class="col-12" #newIngredient [ingredient]="ingredient"></app-ingredient>
+        </div>
+
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="add()" >Adicionar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,18 @@
+.cost-column{
+    text-align: right;
+}
+.header{
+    color: black;
+}
+
+.icon-trash{
+    color: red;
+}
+
+.icon-add{
+    color: rgb(14, 14, 197);
+}
+
+.mat-expansion-panel-body {
+     padding: 0 12px 16px !important;
+  }

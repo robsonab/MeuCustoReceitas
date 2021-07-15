@@ -1,0 +1,90 @@
+<div class="container">
+    <h2>Minhas receitas:</h2>
+
+    <table class="table shadow p-3 mb-5 bg-body rounded">
+        <thead>
+            <tr>
+                <th style="width: 60px;">
+                </th>
+                <th>
+                    Receita
+                </th>
+                <th align="right">
+                    Custo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recipe of recipes">
+                <td>
+                    <img src="../../assets/images/edit.png" class="img-fluid" width="30px" style="cursor: pointer;" (click)=onEdit(recipe)>
+                </td>
+                <td vAlign="middle">
+                    {{recipe.name}}
+                </td>
+                <td align="right" vAlign="middle">
+                    {{getTotal(recipe) | currency : "BRL"}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a [routerLink]="['recipe', 'new']" class="btn btn-link btn-back">
+        <i class="fa fa-2x fa-plus-circle btn-add"></i>
+        <span class="ms-2">Criar uma nova receita</span>
+    </a>
+    <!-- <br><br>
+
+    <mat-accordion>
+        <mat-expansion-panel hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title class="fw-bold">
+                    <div class="col-3 col-md-1 text-center ">
+                        <span class="material-icons icon-add" (click)="newRecipe()">
+                            add_circle
+                        </span>
+                    </div>
+                    <div class="col-6 header pt-1">
+                        Receitas
+                    </div>
+                    <div class="col-3 header text-center pt-1">
+                        Custo
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngFor="let recipe of recipes">
+
+            <mat-expansion-panel-header>
+                <mat-panel-title class="fw-bold">
+                    <div class="col-3 col-sm-2 col-md-2 col-lg-1">
+                        <span class="material-icons fs-3 me-2" (click)="onCopy(recipe)">
+                            content_copy
+                        </span>
+                        <span class="material-icons icon-trash fs-2 ml-2" (click)="onDelete(recipe)">
+                            clear
+                        </span>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="col-6 pt-1">
+                        {{recipe.name}}
+                    </div>
+                    <div class="col-3  pt-1 cost-column">
+                        {{getTotal(recipe) | currency : "BRL"}}
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+
+            <app-ingredient-list [recipe]="recipe">
+            </app-ingredient-list>
+
+
+
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+    <button mat-button (click)="clear()">Limpar</button> -->

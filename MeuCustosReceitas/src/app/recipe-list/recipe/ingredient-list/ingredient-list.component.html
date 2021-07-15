@@ -1,0 +1,52 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle disabled >
+        <mat-expansion-panel-header>
+            <mat-panel-title class="fw-bold">
+                <div class="col-2 col-md-1">                                        
+                </div>
+                <div class="col-8 header">
+                    Ingrediente
+                </div>
+                <div class="col-2 header text-center">
+                    Custo
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let ingredient of recipe.ingredients">
+        <mat-expansion-panel-header>
+            <mat-panel-title>                               
+                <div class="col-2 col-md-1" (click)="onDelete(ingredient)">                    
+                    <i class="fa fa-trash fa-2x text-danger"></i>
+                </div>                 
+                <div class="col-7 pt-1">
+                    {{ingredient.product.name}}
+                </div>
+                <div class="col-3 pe-1 pt-1 cost-column">
+                    {{ getCost(ingredient) | currency: "BRL" }}
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <app-ingredient #recipe [ingredient]="ingredient" (onChange)="ingredientChanged()"></app-ingredient>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="fw-bold">                
+                <div class="offset-2 offset-md-1 col-8 col-md-8  header pt-2">
+                    Total
+                </div>
+                <div class="col-2 header cost-column  pt-2">
+                    {{getTotalCost() | currency : "BRL"}}
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
+<br>
+<button type="button" class="btn btn-add border" (click) = "newIngredient()">
+    
+        <i class="fa fa-plus-circle fa-2x text-primary"></i>
+        <span class="ms-2">Adicionar ingrediente</span>
+</button>

@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Nova receita</h1>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row">
+            <mat-form-field class="col-12"> 
+                <mat-label>Nome da Receita</mat-label>
+                <input matInput [(ngModel)]="recipeName" cdkFocusInitial>
+            </mat-form-field>            
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button  (click)="onClick()">Adicionar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

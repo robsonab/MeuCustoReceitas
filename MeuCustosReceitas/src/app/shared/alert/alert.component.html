@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+    <strong>{{message.title}}</strong>
+    <hr>
+    <p>{{message.body}}</p>
+    
+    <div *ngIf="message.list">        
+        <ul>
+            <li *ngFor="let item of message.list">{{item}} </li>
+        </ul>
+    </div>
+</div>
+<div class="text-center">
+    <div mat-dialog-actions align=center>
+         
+        <button (click)="onOKClick()" class="btn btn-light">            
+                OK   
+        </button>
+    </div>
+</div>

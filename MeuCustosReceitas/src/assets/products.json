@@ -1,0 +1,247 @@
+[
+    {
+        "code": "Ovos",
+        "name": "Ovos",
+        "pricePack": 13,
+        "qtyPack": 30,
+        "unit": "unidades"
+    },
+    {
+        "code": "Abacaxi",
+        "name": "Abacaxi",
+        "qtyPack": 1,
+        "pricePack": 5,
+        "unit": "unidades"
+    },
+    {
+        "code": "Açucar Confeiteiro",
+        "name": "Açucar Confeiteiro",
+        "qtyPack": 1000,
+        "pricePack": 8,
+        "unit": "gramas"
+    },
+    {
+        "code": "Açúcar Cristal",
+        "name": "Açúcar Cristal",
+        "qtyPack": 1000,
+        "pricePack": 7.3,
+        "unit": "gramas"
+    },
+    {
+        "code": "Açucar Mascavo",
+        "name": "Açucar Mascavo",
+        "qtyPack": 1000,
+        "pricePack": 11.19,
+        "unit": "gramas"
+    },
+    {
+        "code": "Açúcar Refinado",
+        "name": "Açúcar Refinado",
+        "qtyPack": 1000,
+        "pricePack": 2.25,
+        "unit": "gramas"
+    },
+    {
+        "code": "Amendoim",
+        "name": "Amendoim",
+        "qtyPack": 1000,
+        "pricePack": 14,
+        "unit": "gramas"
+    },
+    {
+        "code": "Amido de milho",
+        "name": "Amido de milho",
+        "qtyPack": "500",
+        "pricePack": 4.42,
+        "unit": "gramas"
+    },
+    {
+        "code": "Bicarbonato",
+        "name": "Bicarbonato",
+        "qtyPack": 1000,
+        "pricePack": 7.8,
+        "unit": "gramas"
+    },
+    {
+        "code": "Caixa Bolo",
+        "name": "Caixa Bolo",
+        "qtyPack": 1,
+        "pricePack": 4.56,
+        "unit": "gramas"
+    },
+    {
+        "code": "Canela em pó",
+        "name": "Canela em pó",
+        "qtyPack": 1000,
+        "pricePack": 34.68,
+        "unit": "gramas"
+    },
+    {
+        "code": "Cereja em calda",
+        "name": "Cereja em calda",
+        "qtyPack": 1000,
+        "pricePack": 28.9,
+        "unit": "ml"
+    },
+    {
+        "code": "Chantily",
+        "name": "Chantily",
+        "qtyPack": 1000,
+        "pricePack": 10.89,
+        "unit": "gramas"
+    },
+    {
+        "code": "Chocolate em pó",
+        "name": "Chocolate em pó",
+        "qtyPack": 1000,
+        "pricePack": 20.7,
+        "unit": "gramas"
+    },
+    {
+        "code": "Chocolate em pó Recheio",
+        "name": "Chocolate em pó Recheio",
+        "qtyPack": 1000,
+        "pricePack": 20.7,
+        "unit": "gramas"
+    },
+    {
+        "code": "Cobertura chocolate",
+        "name": "Cobertura chocolate",
+        "qtyPack": 2100,
+        "pricePack": 36.79,
+        "unit": "gramas"
+    },
+    {
+        "code": "Coco ralado",
+        "name": "Coco ralado",
+        "qtyPack": 100,
+        "pricePack": 3.09,
+        "unit": "gramas"
+    },
+    {
+        "code": "Cravo em pó",
+        "name": "Cravo em pó",
+        "qtyPack": 1000,
+        "pricePack": 18.6,
+        "unit": "gramas"
+    },
+    {
+        "code": "Creme de leite",
+        "name": "Creme de leite",
+        "qtyPack": 200,
+        "pricePack": 2.39,
+        "unit": "gramas"
+    },
+    {
+        "code": "Embalagem Pão de Mel",
+        "name": "Embalagem Pão de Mel",
+        "qtyPack": 100,
+        "pricePack": 4.26,
+        "unit": "gramas"
+    },
+    {
+        "code": "Essencia de baunilha",
+        "name": "Essencia de baunilha",
+        "qtyPack": 30,
+        "pricePack": 3,
+        "unit": "gramas"
+    },
+    {
+        "code": "Farinha de trigo",
+        "name": "Farinha de trigo",
+        "qtyPack": 5000,
+        "pricePack": 15.99,
+        "unit": "gramas"
+    },
+    {
+        "code": "Fermento em pó",
+        "name": "Fermento em pó",
+        "qtyPack": 100,
+        "pricePack": 2.49,
+        "unit": "gramas"
+    },
+    {
+        "code": "Fita Pão de Mel",
+        "name": "Fita Pão de Mel",
+        "qtyPack": 50000,
+        "pricePack": 9.3,
+        "unit": "gramas"
+    },
+    {
+        "code": "Fita Sizal",
+        "name": "Fita Sizal",
+        "qtyPack": 50000,
+        "pricePack": 9,
+        "unit": "milimetros"
+    },
+    {
+        "code": "Leite Condensado",
+        "name": "Leite Condensado",
+        "qtyPack": 395,
+        "pricePack": 5,
+        "unit": "ml"
+    },
+    {
+        "code": "Leite Condensado Caixa",
+        "name": "Leite Condensado Caixa",
+        "qtyPack": 395,
+        "pricePack": 4.39,
+        "unit": "ml"
+    },
+    {
+        "code": "Leite em pó",
+        "name": "Leite em pó",
+        "qtyPack": 3000,
+        "pricePack": 12,
+        "unit": "gramas"
+    },
+    {
+        "code": "Leite em pó (Ninho)",
+        "name": "Leite em pó (Ninho)",
+        "qtyPack": 3000,
+        "pricePack": 13.7,
+        "unit": "gramas"
+    },
+    {
+        "code": "Manteiga (sem sal)",
+        "name": "Manteiga (sem sal)",
+        "qtyPack": 500,
+        "pricePack": 4.5,
+        "unit": "gramas"
+    },
+    {
+        "code": "Mel",
+        "name": "Mel",
+        "qtyPack": 1000,
+        "pricePack": 8.61,
+        "unit": "ml"
+    },
+    {
+        "code": "Nozes",
+        "name": "Nozes",
+        "qtyPack": 1000,
+        "pricePack": 60,
+        "unit": "gramas"
+    },
+    {
+        "code": "Óleo",
+        "name": "Óleo",
+        "qtyPack": 1000,
+        "pricePack": 8.89,
+        "unit": "ml"
+    },    
+    {
+        "code": "Prato Bolo",
+        "name": "Prato Bolo",
+        "qtyPack": 1,
+        "pricePack": 5,
+        "unit": "unidades"
+    },
+    {
+        "code": "Maracujá",
+        "name": "Maracujá",
+        "qtyPack": 2,
+        "pricePack": 5,
+        "unit": "unidades"
+    }
+]

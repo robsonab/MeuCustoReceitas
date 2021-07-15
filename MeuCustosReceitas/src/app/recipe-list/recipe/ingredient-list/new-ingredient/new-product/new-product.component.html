@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Novo produto</h1>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row">
+            <mat-form-field class="col-12"> 
+                <mat-label>Descrição</mat-label>
+                <input matInput [(ngModel)]="product.name">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-11">
+                <mat-label>Unitdade</mat-label>
+                <mat-select [(value)]="this.product.unit">
+                    <mat-option></mat-option>
+                    <mat-option [value]="unit.code" *ngFor="let unit of units">{{unit.code}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button  (click)="onClick()" cdkFocusInitial>Adicionar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
